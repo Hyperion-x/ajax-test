@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<a href="https://api.hitbtc.com/api/2/public/ticker">get</a>
+	<form action="https://api.hitbtc.com/api/2/public/ticker" method="GET">
+		
+	</form>
+	<button>asdada</button>
+	<script type="text/javascript">
+		// document.querySelector('button').onclick = function () {
+		// 	var x = new XMLHttpRequest();
+		// 	x.open("GET", "https://api.hitbtc.com/api/2/trading/balance", true ,"freeman.prox@gmail.com", "12Prox12");
+		// 	x.send();
+		// }
+
+		// document.querySelector('button').onclick = function () {
+			// var x = new XMLHttpRequest();
+			// x.open("GET", "https://api.hitbtc.com/api/2/public/symbol", true);
+			// x.send();
+			// console.log(x);
+		// }
+		// var http = require('https');
+		// var options = {
+		//   host: 'www.google.com',
+		//   path: '/index.html'
+		// };
+
+		// var req = http.get(options, function(res) {
+		//   console.log('STATUS: ' + res.statusCode);
+		//   console.log('HEADERS: ' + JSON.stringify(res.headers));
+
+		//   // Buffer the body entirely for processing as a whole.
+		//   var bodyChunks = [];
+		//   res.on('data', function(chunk) {
+		//     // You can process streamed parts here...
+		//     bodyChunks.push(chunk);
+		//   }).on('end', function() {
+		//     var body = Buffer.concat(bodyChunks);
+		//     console.log('BODY: ' + body);
+		//     // ...and/or process the entire body here.
+		//   })
+		// });
+
+		// req.on('error', function(e) {
+		//   console.log('ERROR: ' + e.message);
+		// });
+		var data = null;
+
+		var xhr = new XMLHttpRequest();
+		// xhr.withCredentials = true;
+
+		xhr.addEventListener("readystatechange", function () {
+		  if (this.readyState === 4) {
+		    console.log(this.responseText);
+		    console.log(JSON.parse(this.responseText)[5].id);
+
+		  }
+		});
+
+		xhr.open("GET", "https://api.hitbtc.com/api/2/public/symbol");
+		xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+		// xhr.setRequestHeader("host", "api.hitbtc.com");
+		xhr.setRequestHeader("x-amz-date", "20180626T211139Z");
+		xhr.setRequestHeader("authorization", "AWS4-HMAC-SHA256 Credential=/20180626/us-east-1/execute-api/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature=8791523a57f5ca176276a5f68dd16bc5e8cf887699849e9b4e17cc1ea5c0523d");
+		xhr.setRequestHeader("cache-control", "no-cache");
+		xhr.setRequestHeader("postman-token", "7d84c1f7-8351-46ce-7bb5-8f6a0b606334");
+
+		xhr.send();
+		// console.log(xhr.response)
+	</script>
+</body>
+</html>
